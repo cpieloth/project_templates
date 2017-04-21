@@ -379,7 +379,7 @@ class CoverageCustomCmd(CustomCommand):
         from coverage.cmdline import main
 
         tests_dir = os.path.join(working_dir, 'tests', api_name)
-        argv = ['run', '--source', 'example/', '-m', 'unittest', 'discover', tests_dir]
+        argv = ['run', '--source', api_name, '-m', 'unittest', 'discover', tests_dir]
         rc = main(argv)
         if rc != 0:
             return rc
