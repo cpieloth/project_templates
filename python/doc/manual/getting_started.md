@@ -26,7 +26,7 @@ It helps to keep your base system clean and reduces dependency conflicts.
     # create environment with default python version
     virtualenv --no-site-packages venv
     # create environment with python 3.4 (Linux)
-    virtualenv --no-site-packages -p /usr/bin/python34 venv
+    virtualenv --no-site-packages -p /usr/bin/python3.4 venv
     
     # activate virtualenv (Linux)
     source venv/bin/activate
