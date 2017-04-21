@@ -53,7 +53,7 @@ It helps to keep your base system clean and reduces dependency conflicts.
     cd <project>
     
     # print extra commands (Linux)
-    ./setup.py --help-commands
+    ./setup.py --help-commands | grep EXAMPLE
     # print extra commands (Windows)
     python setup.py --help-commands
     
@@ -64,6 +64,6 @@ It helps to keep your base system clean and reduces dependency conflicts.
     check_style_doc   EXAMPLE: Run style checker for docstrings with pep257.
     documentation     EXAMPLE: Create API and manual documentation.
     doc_api           EXAMPLE: Create API documentation with Sphinx.
-    doc_manual        EXAMPLE: Create HTML manual/user documentation from Markdown..
+    doc_manual        EXAMPLE: Create HTML manual/user documentation from Markdown.
     test              EXAMPLE: Run unit tests.
     coverage          EXAMPLE: Generate unit test coverage report.
