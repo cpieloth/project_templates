@@ -10,6 +10,8 @@ PyExample
    :maxdepth: 2
    :caption: Contents:
 
+   manual/getting_started
+   modules
 
 
 Indices and tables

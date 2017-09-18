@@ -62,8 +62,6 @@ It helps to keep your base system clean and reduces dependency conflicts.
     check_style       EXAMPLE: Run style checkers.
     check_style_code  EXAMPLE: Run style checker for code with pep8.
     check_style_doc   EXAMPLE: Run style checker for docstrings with pep257.
-    documentation     EXAMPLE: Create API and manual documentation.
-    doc_api           EXAMPLE: Create API documentation with Sphinx.
-    doc_manual        EXAMPLE: Create HTML manual/user documentation from Markdown.
+    documentation     EXAMPLE: Generate HTML documentation with Sphinx.
     test              EXAMPLE: Run unit tests.
     coverage          EXAMPLE: Generate unit test coverage report.

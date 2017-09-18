@@ -21,6 +21,7 @@ dev_requires = [
     'pep8',
     'pep257',
     'pylint',
+    'recommonmark',
     'Sphinx'
 ]
 

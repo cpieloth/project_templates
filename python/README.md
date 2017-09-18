@@ -7,8 +7,7 @@ The following commands are build-in:
 * `check_code`: code analysis with *Pylint*.
 * `check_style_code`: *PEP 8* code style check
 * `check_style_doc`: *PEP 257* docstring style check
-* `doc_api`: API documentation with Sphinx
-* `doc_manual`: generate HTML documentation from Markdown
+* `documentation`: generate HTML documentation with Sphinx
 * `test`: run unit tests
 * `coverage`: generate unit test coverage report
 
