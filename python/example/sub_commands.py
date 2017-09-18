@@ -58,11 +58,11 @@ class SubCommand(abc.ABC):
         """
         parser = subparsers.add_parser(cls._name(), help=cls._help())
         cls._add_arguments(parser)
-        parser.set_defaults(func=cls.exec)
+        parser.set_defaults(func=cls.execute)
 
     @classmethod
     @abc.abstractmethod
-    def exec(cls, args):
+    def execute(cls, args):
         """
         Execute the command.
 
@@ -87,7 +87,7 @@ class HelloCmd(SubCommand):
         return parser
 
     @classmethod
-    def exec(cls, args):
+    def execute(cls, args):
         """Execute the command."""
         from example.io import print_hello_world
 
