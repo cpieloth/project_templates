@@ -28,8 +28,8 @@ cd <project>
  
 # create environment with default python version
 virtualenv --no-site-packages venv
-# create environment with python 3.4 (Linux)
-virtualenv --no-site-packages -p /usr/bin/python3.4 venv
+# create environment with python 3 (Linux)
+virtualenv --no-site-packages -p /usr/bin/python3 venv
 
 # activate virtualenv (Linux)
 source venv/bin/activate
