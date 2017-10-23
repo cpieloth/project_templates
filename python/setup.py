@@ -25,6 +25,9 @@ dev_requires = [
     'Sphinx'
 ]
 
+# runtime dependencies
+install_requires = []
+
 setup(
     cmdclass=dict(setup_commands.custom_commands),
 
@@ -66,7 +69,7 @@ setup(
 
     packages=find_packages(exclude=['build*', 'doc', 'tests*', 'tools*', 'venv*']),
 
-    install_requires={},
+    install_requires=install_requires,
 
     tests_require=dev_requires,
 
