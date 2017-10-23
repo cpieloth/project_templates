@@ -18,8 +18,8 @@ __author__ = 'Christof Pieloth'
 # development environment dependencies
 dev_requires = [
     'coverage',
-    'pep8',
     'pep257',
+    'pycodestyle',
     'pylint',
     'recommonmark',
     'Sphinx'

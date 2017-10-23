@@ -65,7 +65,7 @@ python setup.py --help-commands
 package           EXAMPLE: Create a Python Built Distribution package.
 check_code        EXAMPLE: Run code analysis with pylint.
 check_style       EXAMPLE: Run style checkers.
-check_style_code  EXAMPLE: Run style checker for code with pep8.
+check_style_code  EXAMPLE: Run style checker for code with pycodestyle.
 check_style_doc   EXAMPLE: Run style checker for docstrings with pep257.
 documentation     EXAMPLE: Generate HTML documentation with Sphinx.
 test              EXAMPLE: Run unit tests.

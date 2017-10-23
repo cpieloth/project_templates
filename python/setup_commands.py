@@ -170,12 +170,11 @@ class CheckStyleCodeCustomCmd(CustomCommand):
         pass
 
     def run(self):
-        import pep8
+        import pycodestyle
 
         ignores = list()
-        ignores.append('E501')  # E501: line too long
 
-        style_guide = pep8.StyleGuide(ignore=ignores)
+        style_guide = pycodestyle.StyleGuide(ignore=ignores, max_line_length=120)
         report = style_guide.check_files([os.path.join(working_dir, api_name), os.path.join(working_dir, 'tests')])
         return report.total_errors
 
