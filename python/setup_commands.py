@@ -91,7 +91,7 @@ class DocumentationCustomCmd(CustomCommand):
     user_options = []
 
     sphinx_build_dir = os.path.join(build_dir, 'sphinx')
-    doc_build_dir = os.path.join(build_dir, 'doc')
+    doc_build_dir = os.path.join(build_dir, 'docs')
 
     @classmethod
     def clean_folders(cls):
@@ -116,7 +116,7 @@ class DocumentationCustomCmd(CustomCommand):
         sphinx.apidoc.main(argv)
 
         # copy configuration and source files to build folder, to keep doc/sphinx clean
-        self.copy_tree(os.path.join(working_dir, 'doc'), self.sphinx_build_dir)
+        self.copy_tree(os.path.join(working_dir, 'docs'), self.sphinx_build_dir)
 
         # generate HTML
         argv = ['sphinx-build', '-b', 'html', '-a', self.sphinx_build_dir, self.doc_build_dir]
