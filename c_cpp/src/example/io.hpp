@@ -9,12 +9,13 @@ namespace io
 {
 
 /**
- * Print 'Hello <name>!' to stdout.
+ * Print 'Hello <first_name> <last_name>!' to stdout.
  *
- * @param name Name to say hello.
+ * @param firstName First name of person to greet.
+ * @param lastName Last name of person to greet.
  * @return Printed string.
  */
-std::string print_hello_world(std::string name);
+std::string printWelloWorld(const std::string& firstName, const std::string& lastName);
 
 }
 }

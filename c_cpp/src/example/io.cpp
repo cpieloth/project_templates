@@ -4,9 +4,9 @@
 
 using namespace example::io;
 
-std::string example::io::print_hello_world(std::string name)
+std::string example::io::printWelloWorld(const std::string& firstName, const std::string& lastName)
 {
-	const std::string hello = "Hello " + name + "!";
-	std::cout << hello << std::endl;
-	return hello;
+    const std::string hello = "Hello " + firstName + " " + lastName + "!";
+    std::cout << hello << std::endl;
+    return hello;
 }
