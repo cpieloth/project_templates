@@ -108,18 +108,18 @@ class DocumentationCustomCmd(CustomCommand):
         pass
 
     def run(self):
-        import sphinx.apidoc
+        import sphinx.ext.apidoc
         import sphinx.cmdline
 
         # generate source files for Sphinx from python code
-        argv = ['sphinx-apidoc', '-f', '-o', self.sphinx_build_dir, os.path.join(working_dir, api_name)]
-        sphinx.apidoc.main(argv)
+        argv = ['-f', '-o', self.sphinx_build_dir, os.path.join(working_dir, api_name)]
+        sphinx.ext.apidoc.main(argv)
 
         # copy configuration and source files to build folder, to keep doc/sphinx clean
         self.copy_tree(os.path.join(working_dir, 'docs'), self.sphinx_build_dir)
 
         # generate HTML
-        argv = ['sphinx-build', '-b', 'html', '-a', self.sphinx_build_dir, self.doc_build_dir]
+        argv = ['-b', 'html', '-a', self.sphinx_build_dir, self.doc_build_dir]
         return sphinx.cmdline.main(argv)
 
 
