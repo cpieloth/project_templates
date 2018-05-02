@@ -236,32 +236,6 @@ class CheckStyleCustomCmd(CustomCommand):
         self.run_command('check_style_doc')
 
 
-class TestCustomCmd(CustomCommand):
-    """Run unit tests."""
-
-    description = CustomCommand.description(__doc__)
-    user_options = []
-
-    @classmethod
-    def name(cls):
-        return 'test'
-
-    @classmethod
-    def clean_folders(cls):
-        return []
-
-    def initialize_options(self):
-        pass
-
-    def finalize_options(self):
-        pass
-
-    def run(self):
-        import unittest
-        argv = ['unittest', 'discover', os.path.join(working_dir, 'tests', api_name)]
-        return unittest.main(argv=argv, module=None, exit=False).result
-
-
 class CoverageCustomCmd(CustomCommand):
     """Generate unit test coverage report."""
 
@@ -345,7 +319,6 @@ custom_commands = {
     CheckStyleCodeCustomCmd.name(): CheckStyleCodeCustomCmd,
     CheckStyleDocCustomCmd.name(): CheckStyleDocCustomCmd,
     CheckStyleCustomCmd.name(): CheckStyleCustomCmd,
-    TestCustomCmd.name(): TestCustomCmd,
     CoverageCustomCmd.name(): CoverageCustomCmd,
     CleanCustomCmd.name(): CleanCustomCmd,
 }
