@@ -29,3 +29,14 @@
     $ cd project_templates/c_cpp/build
     $ src/example/example -h
     $ src/example/example -f foo -l bar
+
+
+## Install Development Requirements
+
+    $ cd project_templates/c_cpp/build
+    $ sudo apt-get install python3-pip python3-apt
+    $ pip3 install virtualenv
+    $ virtualenv venv
+    $ . venv/bin/activate
+    $ pip3 install -r ansible/requirements.txt
+    $ ansible-playbook ansible/playbook_setup_environment.yml -c local -K -e "ansible_python_interpreter=/usr/bin/python3"
