@@ -1,0 +1,51 @@
+---
+##
+# Install required development packages.
+#
+# Run: ansible-playbook playbook_setup_environment.yml -c local -K -e "ansible_python_interpreter=/usr/bin/python3"
+#
+- hosts: 127.0.0.1
+  connection: local
+  become: yes
+  tasks:
+    - name: Install build automation tools.
+      package: name={{ item }} state=present
+      with_items:
+        - cmake
+        - cmake-curses-gui
+      tags:
+        - build_automation
+
+    - name: Install code analysis tools.
+      package: name={{ item }} state=present
+      with_items:
+        - check
+        - cppcheck
+        - valgrind
+      tags:
+        - code_analysis
+
+    - name: Install compiler.
+      package: name={{ item }} state=present
+      with_items:
+        - clang
+        - gcc
+        - g++
+      tags:
+        - compiler
+
+    - name: Install documentation tools.
+      package: name={{ item }} state=present
+      with_items:
+        - doxygen
+        - graphviz
+      tags:
+        - documentation
+
+    - name: Install testing tools.
+      package: name={{ item }} state=present
+      with_items:
+        - check
+        - cxxtest
+      tags:
+        - test

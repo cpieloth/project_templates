@@ -1,5 +1,8 @@
 # https://github.com/github/gitignore
 
+##
+# C/C++
+#
 # Prerequisites
 *.d
 
@@ -60,10 +63,19 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+##
 # Eclipse: CDT-specific (C/C++ Development Tooling)
+#
 .cproject
 .project
 .settings/
 
+##
 # CMake
+#
 build/
+
+##
+# Ansible
+#
+*.retry
