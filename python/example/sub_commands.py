@@ -35,14 +35,14 @@ class SubCommand(abc.ABC):
 
     @classmethod
     @abc.abstractmethod
-    def _add_arguments(cls, subparsers):
+    def _add_arguments(cls, parser):
         """
         Initialize the argument parser and help for the specific sub-command.
 
         Must be implemented by a sub-command.
 
-        :param subparsers: A subparser.
-        :type subparsers: argparse.ArgumentParser
+        :param parser: A parser.
+        :type parser: argparse.ArgumentParser
         :return: void
         """
         raise NotImplementedError()
