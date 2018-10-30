@@ -19,7 +19,6 @@
     - name: Install code analysis tools.
       package: name={{ item }} state=present
       with_items:
-        - check
         - cppcheck
         - valgrind
       tags:
