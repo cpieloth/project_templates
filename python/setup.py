@@ -15,16 +15,6 @@ import setup_commands
 
 __author__ = 'Christof Pieloth'
 
-# development environment dependencies
-dev_requires = [
-    'coverage',
-    'pep257',
-    'pycodestyle',
-    'pylint',
-    'recommonmark',
-    'Sphinx'
-]
-
 # runtime dependencies
 install_requires = []
 
@@ -67,15 +57,9 @@ setup(
         'Programming Language :: Python :: 3',
     ],
 
-    packages=find_packages(exclude=['build*', 'doc', 'tests*', 'tools*', 'venv*']),
+    packages=find_packages(exclude=['build*', 'docs*', 'tests*', 'tools*', 'venv*']),
 
     install_requires=install_requires,
-
-    tests_require=dev_requires,
-
-    extras_require={
-        'dev': dev_requires,
-    },
 
     test_suite='tests',
 
