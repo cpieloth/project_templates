@@ -6,12 +6,15 @@ import sys
 import example.sub_commands
 
 
-def main(argv=sys.argv):
+def main(argv=None):
     """
     Start the Example tool.
 
     :return: 0 on success.
     """
+    if not argv:
+        argv = sys.argv
+
     # Parse arguments
     parser = ag.ArgumentParser(prog=argv[0])
     parser.add_argument('--version', action='version', version='%(prog)s ' + example.__version__)
