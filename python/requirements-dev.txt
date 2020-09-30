@@ -1,8 +1,8 @@
 # Requirement for development
 -r requirements.txt
-coverage
-pep257
-pylint==2.1.*
-pycodestyle
-recommonmark
-Sphinx==1.8.*
+coverage==5.*
+pep257==0.7.*
+pylint==2.6.*
+pycodestyle==2.*
+recommonmark==0.6.*
+Sphinx==3.2.*

@@ -109,7 +109,7 @@ class DocumentationCustomCmd(CustomCommand):
 
     def run(self):
         import sphinx.ext.apidoc
-        import sphinx.cmdline
+        import sphinx.cmd.build
 
         # generate source files for Sphinx from python code
         argv = ['-f', '-o', self.sphinx_build_dir, os.path.join(working_dir, api_name)]
@@ -120,7 +120,7 @@ class DocumentationCustomCmd(CustomCommand):
 
         # generate HTML
         argv = ['-b', 'html', '-a', self.sphinx_build_dir, self.doc_build_dir]
-        return sphinx.cmdline.main(argv)
+        return sphinx.cmd.build.main(argv)
 
 
 class CheckCodeCustomCmd(CustomCommand):
