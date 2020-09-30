@@ -12,3 +12,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - update dependencies
+
+### Removed
+- remove `example.py` package and use `__main__.py` instead
