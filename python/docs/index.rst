@@ -11,6 +11,7 @@ PyExample
    :caption: Contents:
 
    manual/getting_started
+   manual/CHANGELOG
    modules
 
 
