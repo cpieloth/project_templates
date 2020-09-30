@@ -4,6 +4,7 @@ import abc
 import distutils.cmd
 import os
 import re
+import sys
 
 __author__ = 'Christof Pieloth'
 
@@ -113,14 +114,16 @@ class DocumentationCustomCmd(CustomCommand):
 
         # generate source files for Sphinx from python code
         argv = ['-f', '-o', self.sphinx_build_dir, os.path.join(working_dir, api_name)]
-        sphinx.ext.apidoc.main(argv)
+        rc = sphinx.ext.apidoc.main(argv)
 
         # copy configuration and source files to build folder, to keep doc/sphinx clean
         self.copy_tree(os.path.join(working_dir, 'docs'), self.sphinx_build_dir)
 
         # generate HTML
         argv = ['-b', 'html', '-a', self.sphinx_build_dir, self.doc_build_dir]
-        return sphinx.cmd.build.main(argv)
+        rc += sphinx.cmd.build.main(argv)
+
+        sys.exit(rc)
 
 
 class CheckCodeCustomCmd(CustomCommand):
@@ -146,11 +149,15 @@ class CheckCodeCustomCmd(CustomCommand):
     def run(self):
         from pylint.lint import Run
         args = ['--rcfile', os.path.join(working_dir, 'tools', 'pylintrc'), os.path.join(working_dir, api_name)]
-        return Run(args, do_exit=False).linter.msg_status
+        score = Run(args, exit=False).linter.stats['global_note']
+        threshold_score = float(os.getenv('PYLINT_SCORE_THRESHOLD', 9))
+        if score < threshold_score:
+            print('Rating {} < {} (PYLINT_SCORE_THRESHOLD)'.format(score, threshold_score))
+            sys.exit(1)
 
 
 class CheckStyleCodeCustomCmd(CustomCommand):
-    """Run style checker for code with pep8."""
+    """Run style checker for code with pycodestyle."""
 
     description = CustomCommand.description(__doc__)
     user_options = []
@@ -176,7 +183,8 @@ class CheckStyleCodeCustomCmd(CustomCommand):
 
         style_guide = pycodestyle.StyleGuide(ignore=ignores, max_line_length=120)
         report = style_guide.check_files([os.path.join(working_dir, api_name), os.path.join(working_dir, 'tests')])
-        return report.total_errors
+        if report.total_errors:
+            sys.exit(1)
 
 
 class CheckStyleDocCustomCmd(CustomCommand):
@@ -208,7 +216,8 @@ class CheckStyleDocCustomCmd(CustomCommand):
         ignores.append('D203')  # 1 blank line required before class docstring
 
         sys.argv = ['pep257', '--ignore={}'.format(','.join(ignores)), os.path.join(working_dir, api_name)]
-        return pep257.run_pep257()
+        if pep257.run_pep257():
+            sys.exit(1)
 
 
 class CheckStyleCustomCmd(CustomCommand):
@@ -268,7 +277,7 @@ class CoverageCustomCmd(CustomCommand):
             return rc
 
         argv = ['html', '-d', self.dst_dir]
-        return main(argv)
+        sys.exit(main(argv))
 
 
 class CleanCustomCmd(CustomCommand):

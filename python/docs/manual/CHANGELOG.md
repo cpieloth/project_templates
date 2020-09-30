@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - update dependencies
+- use `sys.exit()` for setup commands to support CI jobs
 
 ### Removed
 - remove `example.py` package and use `__main__.py` instead
