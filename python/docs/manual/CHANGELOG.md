@@ -6,13 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.0] - 2020-09-30
+## [0.0.0] - 2020-10-04
 ### Added
 - add `CHANGELOG.md`
+- add module `example.cmdline`
 
 ### Changed
 - update dependencies
 - use `sys.exit()` for setup commands to support CI jobs
+- refactor CLI entry points
 
 ### Removed
-- remove `example.py` package and use `__main__.py` instead
+- remove module `example.example`

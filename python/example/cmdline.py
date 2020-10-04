@@ -1,8 +1,13 @@
-"""Module for CLI command implementations."""
+"""
+Module for command line interface implementation.
+"""
 
 import abc
+import argparse
+import sys
 
-__author__ = 'christof.pieloth'
+from example import __version__
+from example.io import print_hello_world
 
 
 class SubCommand(abc.ABC):
@@ -89,8 +94,37 @@ class HelloCmd(SubCommand):
     @classmethod
     def execute(cls, args):
         """Execute the command."""
-        from example.io import print_hello_world
-
         print_hello_world(args.name)
 
         return 0
+
+
+def main(argv=None):
+    """
+    Start the Example tool.
+
+    :return: 0 on success.
+    """
+    if not argv:
+        argv = sys.argv
+
+    # Parse arguments
+    parser = argparse.ArgumentParser(prog=argv[0])
+    parser.add_argument('--version', action='version', version='%(prog)s ' + __version__)
+
+    subparser = parser.add_subparsers(title='Example Commands', description='Valid example commands.')
+    HelloCmd.init_subparser(subparser)
+
+    args = parser.parse_args(argv[1:])
+    try:
+        # Check if a sub-command is given, otherwise print help.
+        getattr(args, 'func')
+    except AttributeError:
+        parser.print_help()
+        return 2
+
+    return args.func(args)
+
+
+if __name__ == '__main__':
+    sys.exit(main())

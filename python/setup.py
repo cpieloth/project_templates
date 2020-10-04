@@ -67,7 +67,7 @@ setup(
 
     entry_points={
         'console_scripts': [
-            '{} = {}.{}:main'.format(setup_commands.api_name, setup_commands.api_name, setup_commands.api_name)
+            '{} = {}.__main__:main'.format(setup_commands.api_name, setup_commands.api_name)
         ],
     },
 )
