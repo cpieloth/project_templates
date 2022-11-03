@@ -1,0 +1,5 @@
+# Runtime requirements
+# NOTE: Keep setup.py in sync!
+# <package 1>
+# <package 2>
+# ...
