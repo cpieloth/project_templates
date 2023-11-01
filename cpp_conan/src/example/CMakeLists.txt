@@ -1,5 +1,4 @@
-find_package(Boost REQUIRED)
-
+find_package(Boost COMPONENTS program_options REQUIRED)
 add_library("ExampleIo" SHARED
             "io.cpp"
 )

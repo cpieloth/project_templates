@@ -11,6 +11,6 @@ class ExampleConan(ConanFile):
 
     requires = "boost/1.83.0"
     tool_requires = "doxygen/1.9.4"
-    #test_requires = "boost/1.83.0"
+    test_requires = "gtest/1.14.0"
 
     generators = "CMakeDeps", "CMakeToolchain"
