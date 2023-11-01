@@ -1,4 +1,4 @@
 # Overview
 
-* [Getting Started](getting_started_md.html)
-* [Changelog](changelog_md.html)
+* [Getting Started](@ref getting_started_md)
+* [Changelog](@ref changelog_md)
