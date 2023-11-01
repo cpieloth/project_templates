@@ -1,0 +1,28 @@
+# Coding style with EditorConfig
+# Plugin for your editor/IDE on http://EditorConfig.org
+# C/C++ properties: https://docs.microsoft.com/en-us/visualstudio/ide/cpp-editorconfig-properties?view=vs-2019
+
+# top-most EditorConfig file
+root = true
+
+# General config
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+
+# C/C++ style: BSD/Allman
+# .clang-format
+
+[{*.cmake, CMakeLists.txt}]
+# charset = us-ascii is currently not supported
+charset = us-ascii
+indent_style = space
+indent_size = 4
+max_line_length = 140
+
+
+[*.py]
+indent_style = space
+indent_size = 4
+max_line_length = 140
