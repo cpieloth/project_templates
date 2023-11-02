@@ -19,6 +19,12 @@ include(${CMAKE_BINARY_DIR}/conan_toolchain.cmake)
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 
+##
+# Linting
+#
+include(ClangTidy)
+
+
 # Enable testing with CTest
 include(CTest)
 
