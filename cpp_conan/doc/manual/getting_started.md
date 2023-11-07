@@ -25,6 +25,26 @@ This guide is written for Ubuntu Linux.
     $ build/src/example/example --help
 
 
+### Liniting
+
+The following linter tools are supported:
+
+* *clang-tidy*, must be installed on system
+* *cppcheck*, installed via conan
+
+The linter tools are only executed when target is built. By default the linter tools are disabled/skipped and can be enabled using options:
+
+* `SKIP_LINTING_CLANG_TIDY=OFF`
+* `SKIP_LINTING_CPPCHECK=OFF`
+
+For example:
+
+    $ cd cpp_conan
+    $ mkdir build
+    $ conan install . --output-folder=build --build=missing
+    $ cmake . -B build/ -DCMAKE_BUILD_TYPE=Release -DSKIP_LINTING_CLANG_TIDY=OFF -DSKIP_LINTING_CPPCHECK=OFF
+    $ cmake --build build
+
 ## Deprecated
 
 ### Run Unit Tests

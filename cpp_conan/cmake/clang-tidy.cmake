@@ -1,6 +1,6 @@
-option(SKIP_CLANG_TIDY "Enable/disable linting with clang-tidy." ON)
+option(SKIP_LINTING_CLANG_TIDY "Enable/disable linting with clang-tidy." ON)
 
-if(${SKIP_CLANG_TIDY})
+if(${SKIP_LINTING_CLANG_TIDY})
     message(STATUS "Skip linting: clang-tidy")
     return()
 endif()

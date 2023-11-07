@@ -22,7 +22,8 @@ list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 ##
 # Linting
 #
-include(ClangTidy)
+include(clang-tidy)
+include(cppcheck)
 
 
 # Enable testing with CTest
