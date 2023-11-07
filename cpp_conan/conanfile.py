@@ -10,7 +10,20 @@ class ExampleConan(ConanFile):
     settings = "os", "arch", "compiler", "build_type"
 
     requires = "boost/1.83.0"
-    tool_requires = "doxygen/1.9.4", "cppcheck/2.12.1"
     test_requires = "gtest/1.14.0"
 
     generators = "CMakeDeps", "CMakeToolchain"
+
+    options = {"documentation": [True, False],
+               "linting": [True, False],
+               }
+
+    default_options = {"documentation": False,
+                       "linting": False,
+                       }
+
+    def build_requirements(self):
+        if self.options.documentation:
+            self.tool_requires("doxygen/1.9.4")
+        if self.options.linting:
+            self.tool_requires("cppcheck/2.12.1")

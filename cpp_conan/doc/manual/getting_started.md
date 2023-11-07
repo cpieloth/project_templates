@@ -14,6 +14,7 @@ This guide is written for Ubuntu Linux.
 ## Generate & Open Documentation
 
     $ cd cpp_conan
+    $ conan install . --output-folder=build --build=missing -o documentation=True
     $ cmake --build build --target doxygen
     $ xdg-open build/doc/html/index.html
 
@@ -25,12 +26,12 @@ This guide is written for Ubuntu Linux.
     $ build/src/example/example --help
 
 
-### Liniting
+### Linting
 
 The following linter tools are supported:
 
 * *clang-tidy*, must be installed on system
-* *cppcheck*, installed via conan
+* *cppcheck*, installed via conan with the option `linting=True`
 
 The linter tools are only executed when target is built. By default the linter tools are disabled/skipped and can be enabled using options:
 
@@ -41,7 +42,7 @@ For example:
 
     $ cd cpp_conan
     $ mkdir build
-    $ conan install . --output-folder=build --build=missing
+    $ conan install . --output-folder=build --build=missing -o liniting=True
     $ cmake . -B build/ -DCMAKE_BUILD_TYPE=Release -DSKIP_LINTING_CLANG_TIDY=OFF -DSKIP_LINTING_CPPCHECK=OFF
     $ cmake --build build
 
